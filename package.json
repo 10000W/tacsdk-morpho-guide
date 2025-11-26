@@ -1,0 +1,18 @@
+{
+  "name": "tacsdk-morpho-guide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@tonappchain/sdk": "^0.7.1",
+    "@tonconnect/ui": "^2.3.1",
+    "ethers": "^6.15.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  },
+  "private": true
+}
