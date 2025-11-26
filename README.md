@@ -59,14 +59,7 @@ export const convertAddresses = async () => {
    const convertedAddresses = new Map()
    for (let i = 0; i < evmAddresses.length; i += batchSize) {
       const batch = evmAddresses.slice(i, i + batchSize)
-      const allSettled = Promise.allSettled
-              ? Promise.allSettled.bind(Promise)
-              : (pr: Promise<any>[]) =>
-                      Promise.all(pr.map(p => p
-                              .then(v => ({status: 'fulfilled', value: v}))
-                              .catch(e => ({status: 'rejected', reason: e}))))
-
-      const results = await allSettled(batch.map(addr => tacSdk.getTVMTokenAddress(addr)))
+      const results = await Promise.allSettled(batch.map(addr => tacSdk.getTVMTokenAddress(addr)))
 
       batch.forEach((evmAddress, idx) => {
          const res = results[idx]

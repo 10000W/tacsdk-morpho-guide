@@ -72,7 +72,7 @@ const redeem = async (vaultAddress: string, amount: bigint) => {
       [[
         vaultAddress,
         amount,
-        0 // TODO minSharePrice
+        0n
       ]]
     )
   };
