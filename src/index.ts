@@ -14,11 +14,6 @@ export const MORPHO_PROXY = IS_TESTNET
   : '0x21b5562FEee5013379F8F79C5093EC294d535BEC'
 
 const deposit = async (tokenAddress: string, vaultAddress: string, amount: bigint) => {
-  const IS_TESTNET = false
-  const TON_ON_TAC_ADDRESS = IS_TESTNET
-    ? '0xe3a2296bE422768a630eb35014978A808D106899'
-    : '0xb76d91340F5CE3577f0a056D29f6e3Eb4E88B140'
-
   const evmProxyMsg: EvmProxyMsg = {
     evmTargetAddress: MORPHO_PROXY,
     methodName: 'deposit(bytes,bytes)',
